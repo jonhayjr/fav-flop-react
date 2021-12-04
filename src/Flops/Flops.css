@@ -50,3 +50,10 @@ img {
     border: 1px solid orange;
     cursor: pointer;
 }
+
+.btn:disabled {
+    background: #fff;
+    cursor: no-drop;
+    color: #ccc;
+    border: 1px solid #fff;
+}

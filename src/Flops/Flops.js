@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 
 import flopsData from '../flopsData';
 
@@ -6,10 +6,23 @@ import './Flops.css';
 
 export const Flops = () => {
     const [flops, setFlops] = useState(flopsData);
-    const [selected, setSelected] = useState(1);
+    const [selectedID, setSelectedID] = useState('');
 
-    const handleClick = (event) => {
-        console.log(event.target.id)
+    useEffect(() => {}, [flops]);
+
+    const handleClick = (id) => {
+        const flopID = parseInt(id);
+        const updatedFlops = flops.map(flop => {
+           flop.isSelected = flopID === flop.id ? !flop.isSelected : false;
+           return flop;
+        })
+
+        setFlops(updatedFlops)
+        if (selectedID === id) {
+            setSelectedID('')
+        } else {
+            setSelectedID(id)
+        }
     }
 
     return (
@@ -19,8 +32,8 @@ export const Flops = () => {
                    return (<div key={flop.id} className="card">
                                 <h1>{flop.title}</h1>
                                 <p>{flop.year}</p>
-                                <img src={flop.imageSrc} alt={flop.title}/>
-                                <button className="btn" disabled={flop.id === selected ? false : true} onClick={(e) => {handleClick(e)}}>{flop.id === selected ? 'Unvote' : 'Vote'}</button>
+                                <img src={flop.imageSrc} alt={flop.title} data-id={flop.id}/>
+                                <button className="btn" disabled={flop.id !== selectedID && selectedID !== ''} onClick={() => {handleClick(flop.id)}}>{flop.isSelected ? 'Unvote' : 'Vote'}</button>
                             </div>)
                 })
             }
