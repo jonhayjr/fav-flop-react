@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Click [https://fav-flop.netlify.app/](here) for a live preview.
+Click [here](https://fav-flop.netlify.app/) for a live preview.
 
 ## Available Scripts
 
