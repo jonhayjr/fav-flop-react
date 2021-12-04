@@ -26,6 +26,20 @@ const flopsData = [
     year: 2005,
     imageSrc: '../../img/Stealth.jpeg',
     isSelected: false
+},
+{   
+    id: 5,
+    title: 'Gods of Egypt',
+    year: 2016,
+    imageSrc: '../../img/GodsofEgypt.jpg',
+    isSelected: false
+},
+{   
+    id: 6,
+    title: 'Green Zone',
+    year: 2010,
+    imageSrc: '../../img/GreenZone.jpg',
+    isSelected: false
 }
 ]
 

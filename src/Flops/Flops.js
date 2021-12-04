@@ -1,28 +1,36 @@
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 
 import flopsData from '../flopsData';
 
 import './Flops.css';
 
 export const Flops = () => {
-    const [flops, setFlops] = useState(flopsData);
-    const [selectedID, setSelectedID] = useState('');
-
-    useEffect(() => {}, [flops]);
+    const [flops, setFlops] = useState(JSON.parse(localStorage.getItem('flops')) ? JSON.parse(localStorage.getItem('flops')) : flopsData);
+    const [selectedID, setSelectedID] = useState(localStorage.getItem('selectedID', '') ? localStorage.getItem('selectedID', '') : '');
 
     const handleClick = (id) => {
-        const flopID = parseInt(id);
+        //Create new array and toggle isSelected flag on selected flop
         const updatedFlops = flops.map(flop => {
-           flop.isSelected = flopID === flop.id ? !flop.isSelected : false;
+           flop.isSelected = id === flop.id ? !flop.isSelected : false;
            return flop;
         })
 
-        setFlops(updatedFlops)
+        //Update state for flops
+        setFlops(updatedFlops);
+
+        //Add flops to local storage
+        localStorage.setItem('flops', JSON.stringify(updatedFlops));
+
+        //Checks if current id was previously.  If so, selectedID is set to blank.  Then value is added to local storage
         if (selectedID === id) {
-            setSelectedID('')
+            setSelectedID('');
+            localStorage.setItem('selectedID', '');
         } else {
-            setSelectedID(id)
+            setSelectedID(id);
+            localStorage.setItem('selectedID', id);
         }
+
+        
     }
 
     return (
