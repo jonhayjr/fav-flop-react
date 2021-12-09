@@ -4,7 +4,10 @@ import flopsData from '../flopsData';
 
 import './Flops.css';
 
-export const Flops = () => {
+//Import Component
+import Flop from '../Flop/Flop';
+
+const Flops = () => {
     const [flops, setFlops] = useState(JSON.parse(localStorage.getItem('flops')) ? JSON.parse(localStorage.getItem('flops')) : flopsData);
     const [selectedID, setSelectedID] = useState(localStorage.getItem('selectedID', '') ? localStorage.getItem('selectedID', '') : '');
 
@@ -37,12 +40,7 @@ export const Flops = () => {
         <section className="flops-grid">
             {
                 flops.map(flop => {
-                   return (<div key={flop.id} className="card">
-                                <h1>{flop.title}</h1>
-                                <p>{flop.year}</p>
-                                <img src={flop.imageSrc} alt={flop.title} data-id={flop.id}/>
-                                <button className="btn" disabled={flop.id !== selectedID && selectedID !== ''} onClick={() => {handleClick(flop.id)}}>{flop.isSelected ? 'Unvote' : 'Vote'}</button>
-                            </div>)
+                   return  <Flop key={flop.id} flop={flop} handleClick={handleClick}  selectedID={selectedID}/>
                 })
             }
         </section>

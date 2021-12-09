@@ -6,62 +6,6 @@
     margin: 1rem auto;
 }
 
-.card {
-    text-align: center;
-    border: 2px solid black;
-    padding: 1rem;
-}
-
-h1 {
-    background-color: orange;
-    color: white;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 7vh;
-}
-
-p {
-    margin-bottom: 1rem;
-    font-size: 1.25rem;
-    font-weight: bold;
-}
-
-img {
-    width: 75%;
-    height: 350px;
-    border-radius: 10px;
-    border: 4px solid orange;
-}
-
-.btn {
-    outline: none;
-    background-color: orange;
-    color: white;
-    border: 1px solid transparent;
-    display: block;
-    width: 75%;
-    margin: 1rem auto;
-    padding: 5px;
-    font-size: 1.2rem;
-}
-
-.btn:hover {
-    background-color: white;
-    color: orange;
-    border: 1px solid orange;
-    cursor: pointer;
-}
-
-.btn:disabled {
-    background-color: #fff;
-    cursor: no-drop;
-    color: #ccc;
-    border: 1px solid #ccc;
-}
-
 @media (min-width: 768px) {
     .flops-grid {
         grid-template-columns: repeat(2, minmax(350px, 1fr));
