@@ -4,3 +4,7 @@ header {
     text-align: center;
     padding: 1.5rem;
 }
+
+header h1 {
+    letter-spacing: 3px;
+}

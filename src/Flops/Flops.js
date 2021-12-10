@@ -37,13 +37,13 @@ const Flops = () => {
     }
 
     return (
-        <section className="flops-grid">
-            {
-                flops.map(flop => {
-                   return  <Flop key={flop.id} flop={flop} handleClick={handleClick}  selectedID={selectedID}/>
-                })
-            }
-        </section>
+            <section className="flops-grid">
+                {
+                    flops.map(flop => {
+                    return  <Flop key={flop.id} flop={flop} handleClick={handleClick}  selectedID={selectedID}/>
+                    })
+                }
+            </section>
     )
 }
 
