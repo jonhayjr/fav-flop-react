@@ -6,6 +6,7 @@ const Flop = ({flop, handleClick, selectedID}) => {
             <h1>{flop.title}</h1>
             <p>{flop.year}</p>
             <img src={flop.imageSrc} alt={flop.title} data-id={flop.id}/>
+            <p className="chosen" hidden={!flop.isSelected}>Chosen!</p>
             <button className="btn" disabled={parseInt(flop.id) !== selectedID && selectedID !== ''} onClick={() => {handleClick(parseInt(flop.id))}}>{flop.isSelected ? 'Unvote' : 'Vote'}</button>
       </div>
     )

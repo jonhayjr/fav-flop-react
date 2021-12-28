@@ -29,6 +29,10 @@
     border: 4px solid orange;
 }
 
+.chosen {
+    margin-top: 1rem;
+}
+
 .btn {
     outline: none;
     background-color: orange;
